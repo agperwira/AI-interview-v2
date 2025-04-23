@@ -4,7 +4,7 @@ import requests
 from gtts import gTTS
 from io import BytesIO
 import speech_recognition as sr
-from fpdf import FPDF
+# from fpdf import FPDF
 import re
 import os
 
