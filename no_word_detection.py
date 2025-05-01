@@ -46,20 +46,17 @@ with open(r"naive_bayes_no_word_detector.pkl", "rb") as f:
 # ====== Functions ======
 
 def recognize_speech():
-    """Record speech and convert it to text."""
     recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        with st.spinner("🎙️ Recording... Please speak.") :
-            audio = recognizer.listen(source)
     try:
-        text = recognizer.recognize_google(audio, language='en-US')
-        return text
-    except sr.UnknownValueError:
-        st.error("❌ Sorry, the speech could not be recognized.")
-        return None
-    except sr.RequestError as e:
-        st.error(f"❌ Error from Google Speech Recognition service: {e}")
-        return None
+        audio_bytes = BytesIO(audio_file.read())
+        audio_bytes.seek(0)
+        if audio_bytes.getbuffer().nbytes == 0:
+            return "[STT Error] File audio kosong atau belum tersedia"
+        with sr.AudioFile(audio_bytes) as source:
+            audio_data = recognizer.record(source)
+            return recognizer.recognize_google(audio_data, language="id-ID")
+    except Exception as e:
+        return f"[STT Error] {e}"
 
 def detect_negation_local(text, synonyms):
     """Detect negation using local word matching."""
