@@ -4,4 +4,4 @@ SpeechRecognition==3.14.1
 streamlit==1.43.2
 picle
 scikit-learn
-pyaudio
+
