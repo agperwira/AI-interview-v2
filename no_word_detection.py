@@ -4,6 +4,8 @@ import requests
 import pickle
 import json
 import time
+from io import BytesIO
+
 
 SYNONYMS_NEGATION = [
     # Formal Indonesian
