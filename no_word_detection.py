@@ -37,10 +37,10 @@ SYNONYMS_NEGATION = [
 
 # ====== OpenRouter API Configuration ======
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-OPENROUTER_API_KEY = "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"  # Replace with your API key
+OPENROUTER_API_KEY = st.secrets['API_KEY']  # Replace with your API key
 
 # ====== Load Naive Bayes Model ======
-with open(r"ML/naive_bayes_no_word_detector.pkl", "rb") as f:
+with open(r"naive_bayes_no_word_detector.pkl", "rb") as f:
     model = pickle.load(f)
 
 # ====== Functions ======
