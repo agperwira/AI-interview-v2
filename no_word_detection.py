@@ -107,7 +107,7 @@ st.title("🎙️ Detect 'Done' or 'Not Done' Answer from Voice")
 st.write("Use your voice to detect whether you're done or not using three different methods.")
 
 # Upload audio file
-audio_file = st.file_uploader("Upload an audio file", type=["wav", "mp3"])
+audio_file = st.audio_input("Record your answer!")
 
 if audio_file:
     # --- 1. Record voice and convert to text
