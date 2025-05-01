@@ -6,32 +6,24 @@ import json
 import time
 from io import BytesIO
 
-
 SYNONYMS_NEGATION = [
     # Formal Indonesian
     "tidak", "belum", "bukan", "tak", "ndak", "enggak", "nggak", "gak",
-
     # Formal English
     "no", "not", "never", "none", "unfinished", "incomplete", "uncompleted", "pending", "in progress",
-    
     # Informal Indonesian
     "ga", "kaga", "blm", "tdk",
-
     # Indonesian phrases indicating something is not finished
     "masih", "proses", "revisi", "mengulang", "perlu diperbaiki", "belum siap", "belum final", "belum dikumpulkan",
     "masih berlangsung", "belum rampung", "belum dikerjakan", "masih revisi", "belum beres", "perlu revisi", "masih dikerjakan",
     "butuh waktu", "belum tuntas", "belum komplit", "sedang berjalan", "belum kelar",
-
-
     # Informal English
     "haven't", "hasn't", "didn't", "won't", "don't", "ain't", "still working", "still in progress", "not done",
     "not finished", "not yet", "almost done", "working on it", "not ready", "need more time", "not submitted",
-
     # Mixed phrases
     "belum selesai", "tidak selesai", "belum dikirim", "belum dikerjakan", "masih dikerjakan", "masih dalam proses",
     "still revising", "need revision", "waiting for review", "still editing", "still revising", "needs correction",
     "needs to be fixed", "needs improvement",
-
     # Additional expression words
     "kurang", "perbaikan", "butuh revisi", "belum submit", "masih belum", "tidak tuntas",
     "processing", "awaiting submission", "awaiting review"
@@ -47,13 +39,13 @@ with open(r"naive_bayes_no_word_detector.pkl", "rb") as f:
 
 # ====== Functions ======
 
-def recognize_speech():
+def recognize_speech(audio_file):
     recognizer = sr.Recognizer()
     try:
         audio_bytes = BytesIO(audio_file.read())
         audio_bytes.seek(0)
         if audio_bytes.getbuffer().nbytes == 0:
-            return "[STT Error] File audio kosong atau belum tersedia"
+            return "[STT Error] Audio file is empty or not available"
         with sr.AudioFile(audio_bytes) as source:
             audio_data = recognizer.record(source)
             return recognizer.recognize_google(audio_data, language="id-ID")
@@ -114,9 +106,12 @@ Make sure the answer is only 'done' or 'not done' without any additions or expla
 st.title("🎙️ Detect 'Done' or 'Not Done' Answer from Voice")
 st.write("Use your voice to detect whether you're done or not using three different methods.")
 
-if st.button("🎤 Record and Detect"):
+# Upload audio file
+audio_file = st.file_uploader("Upload an audio file", type=["wav", "mp3"])
+
+if audio_file:
     # --- 1. Record voice and convert to text
-    text_input = recognize_speech()
+    text_input = recognize_speech(audio_file)
 
     if text_input:
         st.success(f"📝 Recognized Text: {text_input}")
