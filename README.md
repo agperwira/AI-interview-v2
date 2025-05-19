@@ -16,23 +16,27 @@ This project is a **Streamlit-based AI Interview Assistant** designed to conduct
 ---
 
 ## 📁 Project Structure
-.
-###├── app.py # Main Streamlit app
-###├── system_prompt.txt # LLM system prompt instructions
-###├── requirements.txt # Python dependencies
-###├── videos/ # q1.mp4, q2.mp4, etc.
+
+1├── app.py # Main Streamlit app
+2├── system_prompt.txt # LLM system prompt instructions
+3├── requirements.txt # Python dependencies
+4├── videos/ # q1.mp4, q2.mp4, etc.
 
 ## Create Virtual Environment and Install Dependencies
+
 ```python3 -m venv venv```
 ```source venv/bin/activate```
 
 ##📦 Dependencies
+
 The following libraries are required and already listed in requirements.txt:
 ```pip install -r requirements.txt```
 
 ##▶️ Run the App
+
 After setting up the environment and secrets, launch the app:
 ```streamlit run app.py```
 
 ##👨‍💻 Author
+
 Made with ❤️ by Aga
