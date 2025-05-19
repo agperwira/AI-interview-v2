@@ -17,10 +17,10 @@ This project is a **Streamlit-based AI Interview Assistant** designed to conduct
 
 ## 📁 Project Structure
 
-/n├── app.py # Main Streamlit app
-/n├── system_prompt.txt # LLM system prompt instructions
-/n├── requirements.txt # Python dependencies
-/n├── videos/ # q1.mp4, q2.mp4, etc.
+- ├── app.py # Main Streamlit app
+- ├── system_prompt.txt # LLM system prompt instructions
+- ├── requirements.txt # Python dependencies
+- ├── videos/ # q1.mp4, q2.mp4, etc.
 
 ## Create Virtual Environment and Install Dependencies
 
