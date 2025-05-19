@@ -23,16 +23,16 @@ This project is a **Streamlit-based AI Interview Assistant** designed to conduct
 ###├── videos/ # q1.mp4, q2.mp4, etc.
 
 ## Create Virtual Environment and Install Dependencies
-'''python3 -m venv venv
-source venv/bin/activate'''
+```python3 -m venv venv```
+```source venv/bin/activate```
 
 ##📦 Dependencies
 The following libraries are required and already listed in requirements.txt:
-'''pip install -r requirements.txt'''
+```pip install -r requirements.txt```
 
 ##▶️ Run the App
 After setting up the environment and secrets, launch the app:
-'''streamlit run app.py'''
+```streamlit run app.py```
 
 ##👨‍💻 Author
 Made with ❤️ by Aga
